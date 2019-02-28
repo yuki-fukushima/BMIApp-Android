@@ -10,12 +10,14 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_input -> {
+                setTitle("入力")
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, InputFragment())
                         .commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_history -> {
+                setTitle("履歴")
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, HistoryFragment())
                         .commit()
