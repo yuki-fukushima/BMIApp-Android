@@ -9,9 +9,11 @@ import android.widget.TextView
  */
 
 class ViewHolder(itemData: View) : RecyclerView.ViewHolder(itemData){
-    val dayText: TextView = itemData.findViewById(R.id.day)
-    val heightText: TextView = itemData.findViewById(R.id.height)
-    val weightText: TextView = itemData.findViewById(R.id.weight)
-    val bmiText: TextView = itemData.findViewById(R.id.bmi)
+    var dayText: TextView? = itemData.findViewById(R.id.day)
+    var heightText: TextView? = itemData.findViewById(R.id.height)
+    var weightText: TextView? = itemData.findViewById(R.id.weight)
+    var bmiText: TextView? = itemData.findViewById(R.id.bmi)
+    //    val columText: TextView = itemData.findViewById(R.id.colum)
+
 
 }

@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
+//    var diaryTextList: ArrayList<String> = ArrayList()
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_input -> {
@@ -32,5 +32,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+//        addDiary()
+//
+//        recycler_view.layoutManager = LinearLayoutManager(this)
+//
+//        recycler_view.adapter = ViewAdapter(diaryTextList)
     }
+
+//    fun addDiary() {
+//        diaryTextList.add("diary1")
+//        diaryTextList.add("diary2")
+//        diaryTextList.add("diary3")
+//        diaryTextList.add("diary4")
+//        diaryTextList.add("diary5")
+//        diaryTextList.add("diary6")
+//        diaryTextList.add("diary7")
+//        diaryTextList.add("diary8")
+//        diaryTextList.add("diary10")
+//        diaryTextList.add("diary11")
+//        diaryTextList.add("diary12")
+//        diaryTextList.add("diary13")
+//    }
 }
