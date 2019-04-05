@@ -6,31 +6,35 @@
                                              android:layout_height="wrap_content">
 
 
-
-        <TextView
-            android:id="@+id/day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="20日"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="20dp">
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                tools:text="20日"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
 
             <TextView
                 android:id="@+id/height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_weight="0.5"
+                android:layout_gravity="center"
+
+                android:layout_weight="1"
                 tools:text="身長：172cm"/>
 
             <TextView
@@ -38,19 +42,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
 
                 tools:text="体重：60kg"/>
             <TextView
                 android:id="@+id/bmi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
                 tools:text="BMI：20.3"/>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear"
+            android:layout_marginTop="5dp">
 
+            <TextView
+                android:id="@+id/colum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                tools:text="ただで焼肉を食べてしまったせいで、大変なことになってしまった。"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
 
-
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

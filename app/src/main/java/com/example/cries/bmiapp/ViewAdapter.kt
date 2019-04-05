@@ -5,34 +5,42 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class ViewAdapter(private val myDataset: ArrayList<ItemData>) : RecyclerView.Adapter<ViewHolder>() {
+class ViewAdapter(private val myDataset: ArrayList<ItemData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val sectionType = 0
     private val itemType = 1
     // RecyclerViewの一要素となるXML要素の型を引数に指定する
     // この場合はdiary_list_item.xmlのTextView
-//    class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
+//    class ItemViewHolder(val textView: TextView) : RecyclerView.ItemViewHolder(textView)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType ==  sectionType) {
-            return ViewHolder(LayoutInflater.from(parent.context)
+            return SectionViewHolder(LayoutInflater.from(parent.context)
                     .inflate(R.layout.list_section, parent, false) as View)
         } else {
-            return ViewHolder(LayoutInflater.from(parent.context)
+            return ItemViewHolder(LayoutInflater.from(parent.context)
                     .inflate(R.layout.list_item, parent, false) as View)
         }
 
     }
 
-    // 第１引数のViewHolderはこのファイルの上のほうで作成した`class ViewHolder`です。
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (getItemViewType(position) == sectionType) {
-            holder.dayText?.text  = myDataset[position].dayText
-        } else {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ItemViewHolder) {
             holder.dayText?.text  = myDataset[position].dayText
             holder.heightText?.text = myDataset[position].heightText
             holder.weightText?.text = myDataset[position].weightText
             holder.bmiText?.text = myDataset[position].bmiText
-//        holder.columText.text = myDataset[position].columText
+            holder.columText.text = myDataset[position].columText
+            // メモが空の時はviewを表示しない
+            if (holder.columText.text.isEmpty()) {
+                holder.columText.visibility = View.GONE
+            } else {
+                holder.columText.visibility = View.VISIBLE
+            }
+        } else if (holder is SectionViewHolder){
+            holder.dayText?.text  = myDataset[position].dayText
+            holder.heightText?.text = myDataset[position].heightText
+            holder.weightText?.text = myDataset[position].weightText
+            holder.bmiText?.text = myDataset[position].bmiText
         }
 
 
